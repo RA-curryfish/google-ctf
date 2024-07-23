@@ -175,11 +175,13 @@ def challenge() -> None:
     database.add(f'{DatabaseCLI.SECRET_PREFIX}flag', flag) # secret_key, flag
     DatabaseCLI(database).serve(sys.stdin, sys.stdout)
 
+if __name__ == '__main__':
+  challenge()
+
+# python considers \r as new line, but code checks only for \n (?)
+
 # encode this "add k1 v1\rsecret_password:pwd"
 # 616464206b312076310d7365637265745f70617373776f72643a707764
 # encode this "auth pwd get secret_password"
 # 617574682070776420676574207365637265745f666c6167
 # CTF{UNIv3rsa1_neWLine_1sNT_S@Fe!?}
-
-if __name__ == '__main__':
-  challenge()
